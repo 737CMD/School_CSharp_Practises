@@ -103,7 +103,7 @@ namespace Practica13
         }
     };
 
-    class Program
+    class MainClass
     {
         static void Main(string[] args)
         {
