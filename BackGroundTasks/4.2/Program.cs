@@ -24,7 +24,7 @@ namespace _4._2
     class MatrixWeather
     {
         Month month;
-        static int[] daysInMonthes = { 31, 29 /*Leap year*/, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        static int[] daysInMonths = { 31, 29 /*Leap year*/, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         int monthFirstDay;
         int[,] temperature;
         public MatrixWeather()
@@ -57,7 +57,7 @@ namespace _4._2
             get
             {
                 int x = 0;
-                for (int i = monthFirstDay; i < daysInMonthes[(int)(month)] + monthFirstDay; ++i)
+                for (int i = monthFirstDay; i < daysInMonths[(int)(month)] + monthFirstDay; ++i)
                 {
                     x += temperature[i / 7, i % 7] == 20 ? 1 : 0;
                 }
@@ -67,7 +67,7 @@ namespace _4._2
         public int MaxDelta()
         {
             int maxDelta = -19;
-            for (int i = 1 + monthFirstDay; i < daysInMonthes.Length + monthFirstDay; ++i)
+            for (int i = 1 + monthFirstDay; i < daysInMonths.Length + monthFirstDay; ++i)
             {
                 if (Math.Abs(temperature[i / 7, i % 7] - temperature[(i-1) / 7, (i-1) % 7]) > maxDelta)
                 {
@@ -79,7 +79,7 @@ namespace _4._2
         public int MaxDelta(out int maxDelta)
         {
             maxDelta = -19;
-            for (int i = 1 + monthFirstDay; i < daysInMonthes.Length + monthFirstDay; ++i)
+            for (int i = 1 + monthFirstDay; i < daysInMonths.Length + monthFirstDay; ++i)
             {
                 if (Math.Abs(temperature[i / 7, i % 7] - temperature[(i-1) / 7, (i-1) % 7]) > maxDelta)
                 {
@@ -91,7 +91,7 @@ namespace _4._2
         static void FillMonth(MatrixWeather MX)
         {
             Random random = new Random();
-            for (int i = MX.monthFirstDay; i < MatrixWeather.daysInMonthes[(int)(MX.month)] + MX.monthFirstDay; ++i)
+            for (int i = MX.monthFirstDay; i < MatrixWeather.daysInMonths[(int)(MX.month)] + MX.monthFirstDay; ++i)
             {
                 MX.temperature[i / 7, i % 7] = random.Next(16, 35 /*Subtropics*/);
             }
@@ -100,7 +100,7 @@ namespace _4._2
         {
             get
             {
-                return daysInMonthes[(int)MonthFirstDay];
+                return daysInMonths[(int)MonthFirstDay];
             }
         }
         static int[,] ReFillMonth(MatrixWeather MX, int DayDelta)
@@ -110,7 +110,7 @@ namespace _4._2
 
             MatrixWeather result = new MatrixWeather((MX.monthFirstDay + DayDelta) % 7, MX.month);
             int j = result.monthFirstDay;
-            for (int i = MX.monthFirstDay; i < MatrixWeather.daysInMonthes[(int)(MX.month)] + MX.monthFirstDay; ++i)
+            for (int i = MX.monthFirstDay; i < MatrixWeather.daysInMonths[(int)(MX.month)] + MX.monthFirstDay; ++i)
             {
                 result.temperature[j / 7, j % 7] = MX.temperature[i / 7, i % 7];
                 ++j;
