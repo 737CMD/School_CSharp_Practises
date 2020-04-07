@@ -205,7 +205,7 @@ namespace _4._2
             int weekNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Input weekday number");
             int weekdayNumber = int.Parse(Console.ReadLine());
-            Console.WriteLine("Temperature on this day:" + mw[weekNumber, weekdayNumber]);
+            Console.WriteLine("Temperature on this day: " + mw[weekNumber, weekdayNumber]);
 
         }
     }

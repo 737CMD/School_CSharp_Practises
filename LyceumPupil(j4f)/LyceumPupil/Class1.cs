@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LyceumPupil
 {
-    public class LyceumPupil
+    class LyceumPupil
     {
         public class YouCantExpelMeTwice : Exception
         {
@@ -21,14 +21,14 @@ namespace LyceumPupil
         static ushort howManyPupilsAlreadyExists = 0;
         int grade, group;
         bool isExpelled;
-        string favouriteProgrammingLanguage;
+        string favouriteProgrammingLanguages;
         bool isCommunist;
         string MainOS;
         Dictionary<string, Dictionary<ulong, byte>> Marks;
         public LyceumPupil()
         {
             this.isCommunist = true;
-            this.favouriteProgrammingLanguage = "C++";
+            this.favouriteProgrammingLanguages = "C++";
             this.Marks = new Dictionary<string, Dictionary<ulong, byte>>();
             this.group = 5;
             ++howManyPupilsAlreadyExists;
@@ -39,7 +39,7 @@ namespace LyceumPupil
             this.grade = grade;
             this.group = group;
             this.isCommunist = true;
-            this.favouriteProgrammingLanguage = "C++";
+            this.favouriteProgrammingLanguages = "C++";
             this.Marks = new Dictionary<string, Dictionary<ulong, byte>>();
             ++howManyPupilsAlreadyExists;
             this.MainOS = "Windows10";
@@ -49,7 +49,7 @@ namespace LyceumPupil
             this.grade = grade;
             this.group = group;
             this.isCommunist = true;
-            this.favouriteProgrammingLanguage = FavouriteProgrammingLanguage;
+            this.favouriteProgrammingLanguages = FavouriteProgrammingLanguage;
             this.Marks = new Dictionary<string, Dictionary<ulong, byte>>();
             ++howManyPupilsAlreadyExists;
             this.MainOS = OS;
@@ -59,7 +59,7 @@ namespace LyceumPupil
             this.grade = grade;
             this.group = group;
             this.isCommunist = isCommunist;
-            this.favouriteProgrammingLanguage = FavouriteProgrammingLanguage;
+            this.favouriteProgrammingLanguages = FavouriteProgrammingLanguage;
             this.Marks = Marks;
             ++howManyPupilsAlreadyExists;
             this.MainOS = OS;
@@ -69,7 +69,7 @@ namespace LyceumPupil
             this.grade = other.grade;
             this.group = other.group;
             this.isCommunist = other.isCommunist;
-            this.favouriteProgrammingLanguage = other.favouriteProgrammingLanguage;
+            this.favouriteProgrammingLanguages = other.favouriteProgrammingLanguages;
             this.Marks = other.Marks;
             ++howManyPupilsAlreadyExists;
             this.MainOS = other.MainOS;
@@ -86,13 +86,21 @@ namespace LyceumPupil
         {
             isExpelled = false;
         }
-        public void NewMark(string subject, ulong date, byte mark)
+        public void AddMark(string subject, ulong date, byte mark)
         {
             if (!(Marks.ContainsKey(subject)))
             {
                 Marks.Add(subject, new Dictionary<ulong, byte>());
             }
             Marks[subject].Add(date, mark);
+        }
+        public void RemoveMark(string subject, ulong date)
+        {
+            if (!(Marks.ContainsKey(subject)))
+            {
+                throw new SubjectDoesNotExist();
+            }
+            Marks[subject].Remove(date);
         }
         public List<byte> GetSubjectMarks(string subject) => Marks[subject].Values.ToList();
         public List<byte> GetAllMarks()
@@ -104,7 +112,7 @@ namespace LyceumPupil
             }
             return result;
         }
-        public bool isPetrushka
+        public bool IsPetrushka
         {
             get
             {
@@ -118,21 +126,13 @@ namespace LyceumPupil
                 return false;
             }
         }
-        public bool isNikolayRekut
+        public bool IsNikolayRekut
         {
-            get => (isCommunist == false && favouriteProgrammingLanguage == "JavaScript" && Marks["History"].ContainsValue(5));
+            get => (isCommunist == false && favouriteProgrammingLanguages == "JavaScript" && Marks["History"].ContainsValue(5));
         }
-        public bool TrueProgger
+        public bool IsTrueProgger
         {
-            get => favouriteProgrammingLanguage == "C++" && MainOS == "Linux" && IsCommunist && grade >= 9 && !(isExpelled);
-        }
-        public void RemoveMark(string subject, ulong date)
-        {
-            if (!(Marks.ContainsKey(subject)))
-            {
-                throw new SubjectDoesNotExist();
-            }
-            Marks[subject].Remove(date);
+            get => "C++, Assembly language, Bash".Contains(FavouriteProgrammingLanguage) && MainOS == "Linux" && IsCommunist && grade >= 9 && !(isExpelled);
         }
         public void ChangeOS(string newSO)
         {
@@ -145,8 +145,8 @@ namespace LyceumPupil
         }
         public string FavouriteProgrammingLanguage
         {
-            get => favouriteProgrammingLanguage;
-            set => favouriteProgrammingLanguage = value;
+            get => favouriteProgrammingLanguages;
+            set => favouriteProgrammingLanguages = value;
         }
         public int CountMarks
         {
@@ -174,9 +174,9 @@ namespace LyceumPupil
             get => grade;
             set => grade = value;
         }
-        public static int CountPupils()
+        public static ushort CountPupils()
         {
-            return (int)howManyPupilsAlreadyExists; 
+            return howManyPupilsAlreadyExists; 
         }
     }
 }
