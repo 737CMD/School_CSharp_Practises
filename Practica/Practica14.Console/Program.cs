@@ -7,7 +7,6 @@ namespace Practica14.Console
         static void Main(string[] args){
             DemoPoint point = new DemoPoint(3, 4);
             DemoLine line = new DemoLine(point, new DemoPoint(-2, 0));
-            point.Show();
             line.Show();
         }
     }
