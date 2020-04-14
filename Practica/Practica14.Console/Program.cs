@@ -6,7 +6,8 @@ namespace Practica14.Console
     {
         void Show();
     }
-    class DemoPoint : ShowInterface{
+    class DemoPoint : ShowInterface
+    {
         double x, y;
         public DemoPoint() {}
         public DemoPoint(double x, double y){
@@ -21,8 +22,7 @@ namespace Practica14.Console
             get => y;
             set=> y = value;
         }
-        public void Show()
-        {
+        public void Show(){
             System.Console.Write("(" + x + ", " + y + ")");
         }
     }
@@ -49,8 +49,7 @@ namespace Practica14.Console
             get => secondPoint;
             set => secondPoint = value;
         }
-        public void Show()
-        {
+        public void Show(){
             firstPoint.Show();
             System.Console.Write("\t");
             secondPoint.Show(); 
@@ -59,8 +58,7 @@ namespace Practica14.Console
 
     class Program
     {
-        static void Main(string[] args)
-        {
+        static void Main(string[] args){
             DemoPoint point = new DemoPoint(3, 4);
             DemoLine line = new DemoLine(point, new DemoPoint(-2, 0));
             point.Show();
