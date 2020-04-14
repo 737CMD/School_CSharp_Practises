@@ -1,7 +1,7 @@
 class Bus : Vehicle
 {
     int numberOfPassengers;
-    static readonly int passengersCapacity = 77;
+    int passengersCapacity;
     int ticketPrice;
     public Bus(){       }
     public int TravelProfit{
@@ -22,6 +22,12 @@ class Bus : Vehicle
     }
     public int PassengersCapacity{
         get => passengersCapacity;
+        set{
+            if (value < NumberOfPassengers){
+                throw new TooManyPassengersException();
+            }
+            passengersCapacity = value;
+        }
     }
      public override double RequiredFuel(double distance){
         return base.RequiredFuel(distance) / LoadFactor;

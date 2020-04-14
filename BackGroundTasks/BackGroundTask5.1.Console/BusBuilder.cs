@@ -8,10 +8,14 @@ class BusBuilder{
         bus.NumberOfPassengers = numberOfPassengers;
         return this;
     }
+    public BusBuilder BuildPassengersCapacity(int passengersCapacity){
+        bus.PassengersCapacity = passengersCapacity;
+        return this;
+    }
      public BusBuilder BuildName(string name){
         bus.Name = name;
         return this;
-    }
+     }
     public BusBuilder BuildFuelConsumption(double fuelConsumption){
         bus.FuelConsumption = fuelConsumption;
         return this;
