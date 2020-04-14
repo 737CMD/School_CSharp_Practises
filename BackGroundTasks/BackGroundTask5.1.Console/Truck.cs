@@ -7,19 +7,29 @@ class Truck : Vehicle
         this.CargoWeight = other.CargoWeight;
         this.CarryingCapacity = other.CarryingCapacity; 
     }
-    public override double GetRequiredFuel(double distance){
-        return base.GetRequiredFuel(distance) / CargoWeight;
+    public override double RequiredFuel(double distance){
+        return base.RequiredFuel(distance) * LoadFactor;
     }
     public double CargoWeight{
         get => cargoWeight;
-        set => cargoWeight = value;
+        set{
+            if (value > CarryingCapacity){
+                throw new TooHeavyCargoException("Ne edet kamaz, razgruzhay");
+            }
+            cargoWeight = value;
+        }
     }
     public double CarryingCapacity{
         get => carryingCapacity;
-        set => carryingCapacity = value;
+        set{
+            if (CargoWeight > value){
+                throw new TooHeavyCargoException("Ne edet kamaz, razgruzhay");
+            }
+            carryingCapacity = value;
+        }
     }
-    public override double LoadFactor(){
-        return CargoWeight / CarryingCapacity;
+    public override double LoadFactor{
+        get => CargoWeight / CarryingCapacity;
     }
 
 }

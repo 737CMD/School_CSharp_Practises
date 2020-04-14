@@ -14,16 +14,20 @@ class Car : Vehicle
     }
      public int NumberOfPassengers{
         get => numberOfPassengers;
-        set => numberOfPassengers = value;
+        set{
+            if (value > PassengersCapacity){
+                throw new TooManyPassengersException();
+            }
+            numberOfPassengers = value;
+        }
     }
     public int PassengersCapacity{
         get => passengersCapacity;
-        
     }
-    public override double LoadFactor(){
-        return ((double)NumberOfPassengers / (double)PassengersCapacity);
+    public override double LoadFactor{
+        get =>  ((double)NumberOfPassengers / (double)PassengersCapacity);
     }
-    public override double GetRequiredFuel(double distance){
-        return base.GetRequiredFuel(distance) / NumberOfPassengers;
+    public override double RequiredFuel(double distance){
+        return base.RequiredFuel(distance) / LoadFactor;
     }
 }

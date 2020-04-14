@@ -27,10 +27,10 @@ abstract class Vehicle
         set => fuelTankCapacity = value;
     }
     public double GetMaximumDistance{
-        get => fuelConsumption /  fuelTankCapacity;
+        get => FuelTankCapacity / FuelConsumption;
     }
-    public virtual double GetRequiredFuel(double distance){
-        return distance * fuelConsumption;
+    public virtual double RequiredFuel(double distance){
+        return distance * FuelConsumption;
     }
-    public abstract double LoadFactor();
+    public abstract double LoadFactor{get;}
 }
