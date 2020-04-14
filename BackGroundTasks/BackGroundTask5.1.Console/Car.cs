@@ -4,10 +4,6 @@ class Car : Vehicle
     int numberOfPassengers;
     static readonly int passengersCapacity = 7;
     public Car(){   }
-    public Car(Car other){
-        this.NumberOfPassengers = other.NumberOfPassengers;
-        this.Coachbuiled = other.Coachbuiled;
-    }
     public Coachbuiled Coachbuiled{
         get => coachbuiled;
         set => coachbuiled = value;
@@ -24,7 +20,7 @@ class Car : Vehicle
     public int PassengersCapacity{
         get => passengersCapacity;
     }
-    public override double LoadFactor{
+    public  double LoadFactor{
         get =>  ((double)NumberOfPassengers / (double)PassengersCapacity);
     }
     public override double RequiredFuel(double distance){

@@ -1,5 +1,5 @@
 
-abstract class Vehicle
+ class Vehicle
 {
     protected string name;
     protected double fuelConsumption;
@@ -9,11 +9,7 @@ abstract class Vehicle
         FuelConsumption = 42;
         FuelTankCapacity = 420;
     }
-    public Vehicle(Vehicle other){
-        this.Name = other.Name;
-        this.FuelConsumption = other.FuelConsumption;
-        this.FuelTankCapacity = other.FuelTankCapacity;
-    }
+
     public string Name {
         get => name;
         set => name = value;
@@ -32,5 +28,4 @@ abstract class Vehicle
     public virtual double RequiredFuel(double distance){
         return distance * FuelConsumption;
     }
-    public abstract double LoadFactor{get;}
 }

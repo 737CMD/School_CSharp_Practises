@@ -3,14 +3,7 @@ class Bus : Vehicle
     int numberOfPassengers;
     static readonly int passengersCapacity = 77;
     int ticketPrice;
-    public Bus(){
-        this.TicketPrice = 42;
-        this.NumberOfPassengers = 42;
-       }
-    public Bus(Bus other){
-        this.TicketPrice = other.TicketPrice;
-        this.NumberOfPassengers = other.NumberOfPassengers;
-    }
+    public Bus(){       }
     public int TravelProfit{
         get => TicketPrice * NumberOfPassengers;
     }
@@ -33,7 +26,7 @@ class Bus : Vehicle
      public override double RequiredFuel(double distance){
         return base.RequiredFuel(distance) / LoadFactor;
     }
-    public override double LoadFactor{
+    public double LoadFactor{
         get =>  ((double)NumberOfPassengers / (double)PassengersCapacity);
     } 
 
