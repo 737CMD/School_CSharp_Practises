@@ -2,7 +2,7 @@ class Car : Vehicle
 {
     Coachbuiled coachbuiled;
     int numberOfPassengers;
-    static readonly int passengersCapacity = 7;
+    int passengersCapacity = 7;
     public Car(){   }
     public Coachbuiled Coachbuiled{
         get => coachbuiled;
@@ -19,6 +19,12 @@ class Car : Vehicle
     }
     public int PassengersCapacity{
         get => passengersCapacity;
+        set{
+            if (value < NumberOfPassengers){
+                throw new TooManyPassengersException();
+            }
+            passengersCapacity = value;
+        } 
     }
     public  double LoadFactor{
         get =>  ((double)NumberOfPassengers / (double)PassengersCapacity);

@@ -9,6 +9,10 @@ class CarBuilder
         car.NumberOfPassengers = numberOfPassengers;
         return this;
     }
+    public CarBuilder BuildPassengersCapacity(int passengersCapacity){
+        car.PassengersCapacity = passengersCapacity;
+        return this;
+    }
     public CarBuilder BuildName(string name){
         car.Name = name;
         return this;
