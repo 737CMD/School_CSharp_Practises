@@ -2,7 +2,7 @@ class Car : Vehicle
 {
     Coachbuiled coachbuiled;
     int numberOfPassengers;
-    int passengersCapacity = 7;
+    int passengersCapacity;
     public Car(){   }
     public Coachbuiled Coachbuiled{
         get => coachbuiled;
