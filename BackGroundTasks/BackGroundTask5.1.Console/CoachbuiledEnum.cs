@@ -1,4 +1,4 @@
-enum Coachbuiled{
+enum Coachbuilder{
     Sedan,
     Coupe, 
     Hatchback,

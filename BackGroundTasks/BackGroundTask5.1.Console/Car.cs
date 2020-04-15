@@ -1,12 +1,12 @@
 class Car : Vehicle
 {
-    Coachbuiled coachbuiled;
+    Coachbuilder сoachbuilder;
     int numberOfPassengers;
     int passengersCapacity;
     public Car(){   }
-    public Coachbuiled Coachbuiled{
-        get => coachbuiled;
-        set => coachbuiled = value;
+    public Coachbuilder Coachbuilder{
+        get => сoachbuilder;
+        set => сoachbuilder = value;
     }
      public int NumberOfPassengers{
         get => numberOfPassengers;
