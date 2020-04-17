@@ -1,6 +1,9 @@
  class VehicleBuilder
 {
-    Vehicle vehicle = new Vehicle();
+    Vehicle vehicle;
+    public VehicleBuilder(){
+        vehicle = new Vehicle();
+    }
     public VehicleBuilder BuildName(string name){
         vehicle.Name = name;
         return this;

@@ -1,10 +1,14 @@
 class CarBuilder 
 {
-    Car car = new Car();
+    Car car;
+     public CarBuilder(){
+        car = new Car();
+    }
     public CarBuilder BuildCoachbuileder(Coachbuilder coachbuilder){
         car.Coachbuilder = coachbuilder;
         return this;
     }
+   
     public CarBuilder BuildNumberOfPassengers(int numberOfPassengers){
         car.NumberOfPassengers = numberOfPassengers;
         return this;

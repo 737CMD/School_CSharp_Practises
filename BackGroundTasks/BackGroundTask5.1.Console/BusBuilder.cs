@@ -1,5 +1,8 @@
 class BusBuilder{
-    Bus bus = new Bus();
+    Bus bus;
+    public BusBuilder(){
+        bus = new Bus();
+    }
     public BusBuilder BuildTickerPrice(int ticketPrice){
         bus.TicketPrice = ticketPrice;
         return this;

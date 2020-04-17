@@ -1,5 +1,8 @@
 class TruckBuilder{
-    Truck truck = new Truck();
+    Truck truck;
+    public TruckBuilder(){
+        truck = new Truck();
+    }
     public TruckBuilder BuildCarryingCapacity(int carryingCapacity){
         truck.CarryingCapacity = carryingCapacity;
         return this;
