@@ -1,6 +1,8 @@
-class Pacman : Character{
+class PacmanHero : Character{
     int movesWithInVulnerabilityLeft;
-    public Pacman(){    }
+    public PacmanHero(Field field)
+       :base(field) 
+    {    }
     public int movesWithInulnerabilityLeft{
         get => movesWithInulnerabilityLeft;
         set => movesWithInVulnerabilityLeft = value;
@@ -10,6 +12,5 @@ class Pacman : Character{
     }
     public override void Draw(){
         System.Console.Write("P");
-
     }
 }

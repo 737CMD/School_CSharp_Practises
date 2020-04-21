@@ -1,18 +1,17 @@
 abstract class Character{
     Direction direction;
-    Position position;
-    public Character(){ 
-        position = new Position();
+    Character[] field;
+    public Character(Character[] field){ 
         direction = new Direction();
+        this.field = field;
       }
-    public Position Position{
-        get => position;
-        set => position = value;
-    }
     public Direction Direction{
         get => direction;
         set => direction = value;
     }
-    public abstract void Move();
+    public Character[] Field{
+            get => field;
+    }
+    public abstract void Move(int x, int y);
     public abstract void Draw();
 }

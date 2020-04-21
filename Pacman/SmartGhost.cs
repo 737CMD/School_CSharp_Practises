@@ -1,3 +1,0 @@
-class SmartGhost : Character{
-    
-}
