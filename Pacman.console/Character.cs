@@ -1,17 +1,22 @@
 abstract class Character{
     Direction direction;
-    Character[] field;
-    public Character(Character[] field){ 
+    bool isBerry;
+    Character[,] field;
+    public Character(Character[,] field){ 
         direction = new Direction();
         this.field = field;
+      }
+      public bool IsBerry{
+          get => isBerry;
+          set => isBerry = value;
       }
     public Direction Direction{
         get => direction;
         set => direction = value;
     }
-    public Character[] Field{
+    public Character[,] Field{
             get => field;
     }
-    public abstract void Move(int x, int y);
+    public virtual void Move(int x, int y){}
     public abstract void Draw();
 }

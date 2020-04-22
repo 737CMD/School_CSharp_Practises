@@ -5,7 +5,9 @@ namespace Pacman.console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello World!");
+           Field field=  new Field(10, 10);
+           field.FillField();
+           field.Game();
         }
     }
 }
