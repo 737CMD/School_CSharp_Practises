@@ -10,6 +10,7 @@ class PacmanHero : Character{
     }
     public static int EatenBerries{
         get => eatenBerries;
+        set => eatenBerries = value;
     }
    public override void Move(int x, int y){
        if (HasMoved){return;}

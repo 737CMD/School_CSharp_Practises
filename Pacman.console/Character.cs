@@ -4,7 +4,7 @@ abstract class Character{
     protected bool HasMoved;
     Character[,] field;
     public Character(Character[,] field){ 
-        direction = new Direction();
+        direction = Direction.Right;
         this.field = field;
       }
       public bool IsBerry{
