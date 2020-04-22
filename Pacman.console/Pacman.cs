@@ -12,6 +12,7 @@ class PacmanHero : Character{
         get => eatenBerries;
     }
    public override void Move(int x, int y){
+       if (HasMoved){return;}
         char d = System.Console.ReadKey().KeyChar;
         if (d == 'w'){
             Direction = Direction.Up;
@@ -25,7 +26,7 @@ class PacmanHero : Character{
         else if (d == 'a'){
             Direction = Direction.Left;
         }
-        else{return;}
+        else {System.Console.WriteLine();return;}
         System.Console.WriteLine();
         if (IsInField(x + (int)Direction / 2, y + (int)Direction % 2)){
             if (Field[x + (int)Direction / 2, y + (int)Direction % 2] == null){
@@ -38,11 +39,13 @@ class PacmanHero : Character{
                 Field[x,y] = null;
             }
         }
+        HasMoved = true;
     }
     bool IsInField(int x, int y){
         return x >= 0 && x <Field.GetLength(1) && y >= 0 && y < Field.GetLength(0);
     }
     public override void Draw(){
         System.Console.Write("P");
+        HasMoved = false;
     }
 }

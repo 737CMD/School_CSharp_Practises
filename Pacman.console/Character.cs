@@ -1,6 +1,7 @@
 abstract class Character{
     Direction direction;
     bool isBerry;
+    protected bool HasMoved;
     Character[,] field;
     public Character(Character[,] field){ 
         direction = new Direction();
