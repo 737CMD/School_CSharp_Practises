@@ -52,8 +52,14 @@ class Field{
             }
             for (int y = 0; y < FieldHeight; ++y){
                 for (int x = 0; x < fieldWidth; ++x){
-                     if (field[x,y ] != null){
-                        field[x, y].Move(x ,y);
+                     if (field[x,y] != null){
+                         try{
+                            field[x, y].Move(x ,y);
+                         }
+                         catch(PacmanEaten){
+                           System.Console.WriteLine("GAME OVER");
+                           return;  
+                         }
                     }
                 }
             }

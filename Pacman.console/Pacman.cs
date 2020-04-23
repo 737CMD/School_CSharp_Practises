@@ -34,7 +34,7 @@ class PacmanHero : Character{
                 Field[x + (int)Direction / 2, y + (int)Direction % 2] = this;
                 Field[x,y] = null;
             }
-            else if (Field[x + (int)Direction / 2, y + (int)Direction % 2].IsBerry){
+            else if (Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType() == typeof(Berry)){
                 ++eatenBerries;
                 Field[x + (int)Direction / 2, y + (int)Direction % 2] = this;
                 Field[x,y] = null;

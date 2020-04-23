@@ -8,6 +8,7 @@ namespace Pacman.console
            Field field=  new Field(10, 10);
            field.FillField();
            field.Game();
+           
         }
     }
 }

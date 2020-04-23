@@ -7,7 +7,10 @@ class Ghost : Character{
          System.Random rnd = new System.Random();
          Direction previousDirection = this.Direction;
          int[] directions = {2, 1, -1, -2};
-         while (!(IsInField(x + (int)Direction / 2, y + (int)Direction % 2) && (Field[x + (int)Direction / 2, y + (int)Direction % 2] == null || Field[x + (int)Direction / 2, y + (int)Direction % 2].IsBerry))){
+         if (IsInField(x + (int)Direction / 2, y + (int)Direction % 2) && Field[x + (int)Direction / 2, y + (int)Direction % 2] != null && typeof(PacmanHero) == Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType()){
+             throw new PacmanEaten();
+         }
+         while (!(IsInField(x + (int)Direction / 2, y + (int)Direction % 2) && (Field[x + (int)Direction / 2, y + (int)Direction % 2] == null || Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType() == typeof(Berry)))){
              Direction = (Direction)(directions[rnd.Next(4)]);
          }
          if (IsInField(x + (int)Direction / 2, y + (int)Direction % 2)){
@@ -15,7 +18,7 @@ class Ghost : Character{
                 Field[x + (int)Direction / 2, y + (int)Direction % 2] = this;
                 Field[x,y] = null;
             }
-            else if (Field[x + (int)Direction / 2, y + (int)Direction % 2].IsBerry){
+            else if (Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType() == typeof(Berry)){
                 ++PacmanHero.EatenBerries;
                 Field[x + (int)Direction / 2, y + (int)Direction % 2] = this;
                 Field[x,y] = null;

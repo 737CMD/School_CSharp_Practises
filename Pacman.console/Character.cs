@@ -1,15 +1,10 @@
 abstract class Character{
     Direction direction;
-    bool isBerry;
     protected bool HasMoved;
     Character[,] field;
     public Character(Character[,] field){ 
         direction = Direction.Right;
         this.field = field;
-      }
-      public bool IsBerry{
-          get => isBerry;
-          set => isBerry = value;
       }
     public Direction Direction{
         get => direction;
