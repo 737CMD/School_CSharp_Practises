@@ -7,5 +7,4 @@ class Berry : Character{
     public override void Draw(){
         System.Console.Write(".");
     }
-    public override void Move(int x, int y){    }
 }

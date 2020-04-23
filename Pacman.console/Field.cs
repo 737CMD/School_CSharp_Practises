@@ -38,6 +38,7 @@ class Field{
         }
     }
     public void Game(){
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
         while (PacmanHero.EatenBerries < FieldHeight * FieldWidth - FieldHeight * FieldWidth / 10 - 3){
             for (int y = 0; y < FieldHeight; ++y){
                 for (int x = 0; x < fieldWidth; ++x){
