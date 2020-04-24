@@ -13,6 +13,6 @@ abstract class Character{
     public Character[,] Field{
             get => field;
     }
-    public virtual void Move(int x, int y){}
+    public virtual void Move(int x, int y, ref int eatenBerries){}
     public abstract void Draw();
 }

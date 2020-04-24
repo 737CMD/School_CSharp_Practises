@@ -2,7 +2,7 @@ class Ghost : Character{
     public Ghost(Character[,] field)
         :base(field)
     {}
-     public override void Move(int x, int y){
+     public override void Move(int x, int y, ref int eatenBerries){
          if (HasMoved){return;}
          System.Random rnd = new System.Random();
          Direction previousDirection = this.Direction;
@@ -19,7 +19,7 @@ class Ghost : Character{
                 Field[x,y] = null;
             }
             else if (Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType() == typeof(Berry)){
-                ++PacmanHero.EatenBerries;
+                ++eatenBerries;
                 Field[x + (int)Direction / 2, y + (int)Direction % 2] = this;
                 Field[x,y] = null;
             }

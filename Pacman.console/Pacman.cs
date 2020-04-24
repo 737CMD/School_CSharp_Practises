@@ -1,6 +1,6 @@
 class PacmanHero : Character{
     int movesWithInVulnerabilityLeft;
-    static int eatenBerries;
+    int eatenBerries;
     public PacmanHero(Character[,] field)
        :base(field) 
     {    }
@@ -8,11 +8,11 @@ class PacmanHero : Character{
         get => movesWithInulnerabilityLeft;
         set => movesWithInVulnerabilityLeft = value;
     }
-    public static int EatenBerries{
+    public int EatenBerries{
         get => eatenBerries;
         set => eatenBerries = value;
     }
-   public override void Move(int x, int y){
+   public override void Move(int x, int y, ref int eatenBerries){
        if (HasMoved){return;}
         char d = System.Console.ReadKey().KeyChar;
         if (d == 'w'){
