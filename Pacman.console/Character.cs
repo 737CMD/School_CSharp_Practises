@@ -1,7 +1,7 @@
 abstract class Character{
     Direction direction;
     protected bool HasMoved;
-    Character[,] field;
+    readonly Character[,] field;
     public Character(Character[,] field){ 
         direction = Direction.Right;
         this.field = field;

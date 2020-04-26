@@ -1,19 +1,16 @@
 class Field{
-    readonly int fieldHeight;
-    readonly int fieldWidth;
     int eatenBerries;
-    Character[,] field;
+    readonly Character[,] field;
     public Field(int fieldHeight, int fieldWidth){
-        this.fieldHeight = fieldHeight;
-        this.fieldWidth = fieldWidth;
+        this.FieldHeight = fieldHeight;
+        this.FieldWidth = fieldWidth;
         field = new Character[FieldHeight, FieldWidth];
     }
-    public int FieldHeight{
-        get => fieldHeight;
-    }
-    public int FieldWidth{
-        get => fieldWidth;
-    }
+
+    private int FieldHeight { get; }
+
+    private int FieldWidth { get; }
+
     public void FillField(){
         field[FieldWidth / 2, FieldHeight / 2] = new PacmanHero(field);
         field[0, 0] = new Ghost(field);
@@ -42,7 +39,7 @@ class Field{
         System.Console.OutputEncoding = System.Text.Encoding.UTF8;
         while (eatenBerries < FieldHeight * FieldWidth - FieldHeight * FieldWidth / 10 - 3){
             for (int y = 0; y < FieldHeight; ++y){
-                for (int x = 0; x < fieldWidth; ++x){
+                for (int x = 0; x < FieldWidth; ++x){
                     if (field[x,y] == null){
                         System.Console.Write(" ");
                         continue;
@@ -52,7 +49,7 @@ class Field{
             System.Console.WriteLine();
             }
             for (int y = 0; y < FieldHeight; ++y){
-                for (int x = 0; x < fieldWidth; ++x){
+                for (int x = 0; x < FieldWidth; ++x){
                      if (field[x,y] != null){
                          try{
                             field[x, y].Move(x ,y, ref eatenBerries);
