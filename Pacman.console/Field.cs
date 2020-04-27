@@ -50,15 +50,13 @@ class Field{
             }
             for (int y = 0; y < FieldHeight; ++y){
                 for (int x = 0; x < FieldWidth; ++x){
-                     if (field[x,y] != null){
-                         try{
-                            field[x, y].Move(x ,y, ref eatenBerries);
-                         }
-                         catch(PacmanEaten){
-                           System.Console.WriteLine("GAME OVER");
-                           return;  
-                         }
-                    }
+                     try{
+                        field[x, y]?.Move(x ,y, ref eatenBerries);
+                     }
+                     catch(PacmanEaten){
+                       System.Console.WriteLine("GAME OVER"); //TODO: Replace this nasty smelling code with callback delegate
+                       return;  
+                     }
                 }
             }
         }
