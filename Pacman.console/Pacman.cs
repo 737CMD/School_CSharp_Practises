@@ -4,14 +4,6 @@ class PacmanHero : Character{
     public PacmanHero(Character[,] field)
        :base(field) 
     {    }
-    public int movesWithInulnerabilityLeft{
-        get => movesWithInulnerabilityLeft;
-        set => movesWithInVulnerabilityLeft = value;
-    }
-    public int EatenBerries{
-        get => eatenBerries;
-        set => eatenBerries = value;
-    }
    public override void Move(int x, int y, ref int eatenBerries){
        if (HasMoved){return;}
         char d = System.Console.ReadKey().KeyChar;
