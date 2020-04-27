@@ -34,7 +34,7 @@ class PacmanHero : Character{
         }
         HasMoved = true;
     }
-    bool IsInField(int x, int y){
+    private bool IsInField(int x, int y){
         return x >= 0 && x <Field.GetLength(1) && y >= 0 && y < Field.GetLength(0);
     }
     public override void Draw(){
