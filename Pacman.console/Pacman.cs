@@ -1,5 +1,4 @@
 class PacmanHero : Character{
-    int movesWithInVulnerabilityLeft;
     int eatenBerries;
     public PacmanHero(Character[,] field)
        :base(field) 
