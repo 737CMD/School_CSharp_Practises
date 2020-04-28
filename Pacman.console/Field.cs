@@ -54,7 +54,7 @@ class Field{
                         field[x, y]?.Move(x ,y, ref eatenBerries);
                      }
                      catch(PacmanEaten){
-                       System.Console.WriteLine("GAME OVER"); //TODO: Replace this nasty smelling code with callback delegate
+                       System.Console.WriteLine("GAME OVER"); //TODO: Replace this with call-back delegate
                        return;  
                      }
                 }

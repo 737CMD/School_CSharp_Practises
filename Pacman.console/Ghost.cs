@@ -4,8 +4,8 @@ class Ghost : Character{
     {}
      public override void Move(int x, int y, ref int eatenBerries){
          if (HasMoved){return;}
-         System.Random rnd = new System.Random();
-         Direction previousDirection = this.Direction;
+         var rnd = new System.Random();
+         var previousDirection = this.Direction;
          int[] directions = {2, 1, -1, -2};
          if (IsInField(x + (int)Direction / 2, y + (int)Direction % 2) && Field[x + (int)Direction / 2, y + (int)Direction % 2] != null && typeof(PacmanHero) == Field[x + (int)Direction / 2, y + (int)Direction % 2].GetType()){
              throw new PacmanEaten();
